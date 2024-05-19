@@ -13,8 +13,8 @@ const generateContacts = async (number) => {
     const oldContacts = await fs.readFile(PATH_DB, 'utf8');
     const parseOldContacts = JSON.parse(oldContacts);
 
-    const newContacts = await createFakeContacts(number);
-    console.log(newContacts);
+    const newContacts = createFakeContacts(number);
+
     const updatedContacts = [...parseOldContacts, ...newContacts];
 
     await fs.writeFile(
